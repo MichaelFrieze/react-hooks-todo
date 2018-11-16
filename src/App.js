@@ -1,6 +1,6 @@
 // All components are going to be functional
 // Get rid of everything in this create-react-app generated file
-// Not import React with useState
+// Now import React with useState
 import React, { useState } from 'react';
 
 // Now we are going to create an App function
