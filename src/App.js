@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import './App.css';
 
-function Todo({ todo, index }) {
-  return <div className="todo">{todo.text}</div>;
+function Todo({ todo, index, completeTodo }) {
+  // lets add to this div a style
+  // remember style uses double curly bracers
+  // we also want to add a couple of buttons
+  // going to add an onClick to the button using an arrow func
+  // we also want to pass in completeTodo as a prop
+  // very similar to our addTodo
+  return (
+    <div style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }} className="todo">
+      {todo.text}
+      <div>
+        <button onClick={() => completeTodo(index)}>Complete</button>
+      </div>
+    </div>
+  );
 }
 
-// changed name to reduce confusion
-// important to understand this is a reference
-function TodoForm({addTodoReference}) {
+function TodoForm({ addTodoReference }) {
   const [value, setValue] = useState('');
 
   const handleSubmit = e => {
@@ -51,11 +62,20 @@ function App() {
     setTodos(newTodos);
   };
 
+  // now we need to create completeTodo
+  // remember we still need to add newTodos isCompleted true to our state
+  const completeTodo = index => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
+    setTodos(newTodos);
+  };
+
+  // Here we are going to add completeTodo as a prop to the Todo component
   return (
     <div className="app">
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <Todo key={index} index={index} todo={todo} />
+          <Todo key={index} index={index} todo={todo} completeTodo={completeTodo} />
         ))}
         <TodoForm addTodoReference={addTodo} />
       </div>
