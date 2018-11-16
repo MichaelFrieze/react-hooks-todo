@@ -1,13 +1,15 @@
-// All components are going to be functional
-// Get rid of everything in this create-react-app generated file
-// Now import React with useState
 import React, { useState } from 'react';
 
-// Now we are going to create an App function
-// This is our main component
-// useState gives us 2 variables
-// the first is the value of the state like this.state within a class
-// it also gives us a function to update the state like this.setState
+// Now lets created Todo component
+// We passed 3 props from the return statement at the bottom of file
+// However, index is used twice
+// We could use props.todo and props.index
+// But lets use destructoring
+function Todo({ todo, index }) {
+  return <div className="todo">{todo.text}</div>;
+}
+// now we should be able to run the application and text should be displayed
+
 function App() {
   const [todos, setTodos] = useState([
     {
@@ -24,8 +26,6 @@ function App() {
     }
   ]);
 
-  // Now we want a return
-  // in the todo-list we want to map through the to-do's in the state
   return (
     <div className="app">
       <div className="todo-list">
@@ -37,5 +37,4 @@ function App() {
   );
 }
 
-// Export this App
 export default App;
