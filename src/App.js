@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
+// lets add some styling, so we can bring in the css file
+import './App.css';
 
-// Now lets created Todo component
-// We passed 3 props from the return statement at the bottom of file
-// However, index is used twice
-// We could use props.todo and props.index
-// But lets use destructoring
 function Todo({ todo, index }) {
   return <div className="todo">{todo.text}</div>;
 }
-// now we should be able to run the application and text should be displayed
 
 function App() {
   const [todos, setTodos] = useState([
