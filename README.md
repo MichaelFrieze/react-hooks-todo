@@ -33,3 +33,9 @@ function Example() {
 }
 ```
 
+## React Version
+This is a new feature introduced in `16.7.0` which is still in alpha (at the time).
+So, if `create-react-app` is used and the version is not at least `16.7.0`, then we have to install it:
+```bash
+npm i -S react@16.7.0-alpha.2 react-dom@16.7.0-alpha.2
+```
