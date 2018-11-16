@@ -5,14 +5,15 @@ function Todo({ todo, index }) {
   return <div className="todo">{todo.text}</div>;
 }
 
-function TodoForm({addTodo}) {
+// changed name to reduce confusion
+// important to understand this is a reference
+function TodoForm({addTodoReference}) {
   const [value, setValue] = useState('');
 
   const handleSubmit = e => {
-    // I missed this right here
     e.preventDefault();
     if (!value) return;
-    addTodo(value);
+    addTodoReference(value);
     setValue('');
   };
 
@@ -56,7 +57,7 @@ function App() {
         {todos.map((todo, index) => (
           <Todo key={index} index={index} todo={todo} />
         ))}
-        <TodoForm addTodo={addTodo} />
+        <TodoForm addTodoReference={addTodo} />
       </div>
     </div>
   );
