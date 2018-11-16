@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 
-// so we need to add a new button
-// lets call it removeTodoRef since it is going to get a reference rather than a value
-// Label the button as X
-// bring this in as a prop as well
 function Todo({ todo, index, completeTodoRef, removeTodoRef }) {
   return (
     <div style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }} className="todo">
@@ -67,18 +63,12 @@ function App() {
     setTodos(newTodos);
   };
 
-  // Now, lets create our deleteTodo function
-  // it needs an index
-  // now we are going to create a new array with spread
-  // then splice it out by the index and just 1
-  // then setTodos for the state
   const removeTodo = index => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
 
-  // Now add our removeTodoRef prop and assign it to removeTodo function we created above
   return (
     <div className="app">
       <div className="todo-list">
