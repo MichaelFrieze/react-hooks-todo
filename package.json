@@ -15,7 +15,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://myusername.github.i/oreact-hooks-todo",
   "eslintConfig": {
     "extends": "react-app"
   },
